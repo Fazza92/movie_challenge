@@ -25,6 +25,16 @@ class SchedulerController
     until finished
       # logic for your program
 
+      movie_hash = File.read('movie_list.json')
+      data_hash = JSON.parse(movie_hash)
+
+      data_hash.each do |movie| 
+        puts movie["title"] 
+        puts "Rated " + movie["rating"]
+        puts movie["time"]
+        puts "---------------------------"
+      end
+
       runner_view.ask_if_user_is_finished
       user_choice = gets.chomp
 
